@@ -1,0 +1,310 @@
+:root {
+  --bg-canvas: #f6f7fa;
+  --card-bg: #fff;
+  --primary-text: #232323;
+  --secondary-text: #737373;
+  --accent: #ff7043;
+  --card-shadow: 0 4px 16px rgba(40,40,40,0.08);
+  --meta-text: #7b7b7b;
+  --desc-text: #383838;
+  --fav-on: #ff3b3b;
+  --fav-off: #aaaaaa;
+  --footer-bg: #fafafd;
+  --border-color: #ececec;
+  --btn-primary-bg: var(--accent);
+  --btn-primary-bg-hover: #e85b28;
+  --btn-fav-bg: #fff;
+  --btn-fav-border: #eee;
+}
+
+.app-bg {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  height: 58px;
+  background: #fff;
+  border-bottom: 1.5px solid var(--border-color);
+  box-shadow: 0 2px 6px rgba(30, 30, 30, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  margin-right: 24px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-left: 12px;
+  flex: 1;
+}
+
+.nav-links a {
+  color: var(--primary-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent;
+  border-radius: 6px;
+  padding: 4px 10px;
+  outline: none;
+  transition: background 0.18s;
+}
+
+.nav-links a.active,
+.nav-links a:focus,
+.nav-links a:hover {
+  background: var(--bg-canvas);
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background-color: var(--btn-primary-bg);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.09);
+  transition: background 0.16s;
+}
+.theme-toggle:hover {
+  background: var(--btn-primary-bg-hover);
+  opacity: 0.92;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 32px auto 0 auto;
+  padding: 0 16px;
+}
+
+.search-row {
+  width: 100%;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 380px;
+  font-size: 1.15rem;
+  border: 1.5px solid var(--border-color);
+  padding: 13px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(40,40,40,0.06);
+  background: #fff;
+  color: var(--primary-text);
+  transition: border 0.2s;
+}
+
+.search-input:focus {
+  border: 1.5px solid var(--accent);
+  outline: none;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 32px 24px;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.recipe-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+  margin: 0;
+  width: 100%;
+  max-width: 340px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.17s;
+  outline: none;
+  border: 1.2px solid var(--border-color);
+  cursor: pointer;
+}
+.recipe-card:focus,
+.recipe-card:hover {
+  box-shadow: 0 4px 32px 0 rgba(255,112,67,0.12), var(--card-shadow);
+  border-color: var(--accent);
+}
+
+.card-img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.045);
+  user-select: none;
+  background: #f6f6f6;
+}
+
+.card-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.26rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin: 18px 0 6px 0;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.card-meta {
+  color: var(--meta-text);
+  font-size: 1.02rem;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.card-desc {
+  color: var(--desc-text);
+  font-size: 1.06rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: #fff;
+  font-weight: 700;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(254, 147, 76, 0.08);
+  cursor: pointer;
+  transition: background 0.18s, transform 0.15s;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--btn-primary-bg-hover);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-fav {
+  background: var(--btn-fav-bg);
+  border: 2px solid var(--btn-fav-border);
+  color: var(--fav-off);
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.14s, background 0.18s, transform 0.13s;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+.btn-fav.fav-on,
+.btn-fav:active {
+  color: var(--fav-on);
+  background: #ffeeeb;
+  border-color: var(--fav-on);
+  transform: scale(1.11);
+}
+
+.no-results {
+  font-size: 1.12rem;
+  color: #888;
+  margin: 40px auto 80px auto;
+  text-align: center;
+}
+
+.footer {
+  margin-top: 56px;
+  width: 100%;
+  text-align: center;
+  padding: 28px 0 22px 0;
+  font-size: 1.04rem;
+  background: var(--footer-bg);
+  color: #909090;
+  border-top: 1px solid var(--border-color);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 95vw;
+  }
+  .recipe-grid {
+    gap: 24px 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .recipe-card {
+    min-height: 340px;
+    max-width: 98vw;
+    padding: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 8px;
+    font-size: 1rem;
+  }
+  .container {
+    padding: 0 4px;
+  }
+  .search-row {
+    margin-bottom: 15px;
+  }
+  .recipe-card {
+    min-width: 96vw;
+    max-width: 100vw;
+    padding: 8px;
+    border-radius: 13px;
+  }
+  .card-img {
+    height: 120px;
+    border-radius: 11px 11px 9px 9px;
+  }
+  .card-title {
+    font-size: 1.08rem;
+    margin: 12px 0 6px 0;
+  }
+  .footer {
+    padding: 26px 0 18px 0;
+    font-size: 1rem;
+  }
+}
