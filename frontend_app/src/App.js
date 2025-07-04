@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import "./RecipeCards.css";
 import Navbar from "./components/Navbar";
@@ -7,14 +7,11 @@ import AuthModal from "./components/AuthModal";
 import RecipeForm from "./components/RecipeForm";
 import useRecipeHubAppState from "./hooks/useRecipeHubAppState";
 import images from "./assets/imageAssets";
+import { useTheme } from "./hooks/ThemeContext";
 
 // PUBLIC_INTERFACE
 function App() {
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+  const { theme, toggleTheme } = useTheme();
 
   // Centralized app state (all logic, favorites, recipes, etc.)
   const {
