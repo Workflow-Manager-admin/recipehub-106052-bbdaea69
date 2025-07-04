@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * Navbar component renders navigation, user actions, and a theme toggle button.
+ * Props: user, onSignIn, onSignOut, theme, toggleTheme, currentPage, setPage
+ */
 // PUBLIC_INTERFACE
 function Navbar({ user, onSignIn, onSignOut, theme, toggleTheme, currentPage, setPage }) {
   return (
@@ -36,7 +40,13 @@ function Navbar({ user, onSignIn, onSignOut, theme, toggleTheme, currentPage, se
       ) : (
         <button className="btn-small" onClick={onSignIn}>Sign In</button>
       )}
-      <button className="theme-toggle" aria-label={"Switch theme"} onClick={toggleTheme}>
+      {/* Theme toggle switch (right side): switches between light/dark mode */}
+      <button
+        className="theme-toggle"
+        aria-label={"Switch theme"}
+        onClick={toggleTheme}
+        title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+      >
         {theme === "light" ? "🌙 Dark" : "☀️ Light"}
       </button>
     </header>

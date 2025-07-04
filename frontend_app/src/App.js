@@ -11,6 +11,7 @@ import { useTheme } from "./hooks/ThemeContext";
 
 // PUBLIC_INTERFACE
 function App() {
+  // Integrate theme context
   const { theme, toggleTheme } = useTheme();
 
   // Centralized app state (all logic, favorites, recipes, etc.)
@@ -37,6 +38,12 @@ function App() {
 
   // Keys of all loaded image assets (for add form image selection)
   const allAssetKeys = Object.keys(images);
+
+  // Set the app wrapper's theme, updating [data-theme] for CSS var switching
+  React.useEffect(() => {
+    // The ThemeProvider already does this, but keep as safeguard for outer <div>
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <div className="app-bg">
